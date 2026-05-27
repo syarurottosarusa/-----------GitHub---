@@ -54,3 +54,6 @@ streamlit run app.py
 - 優先度ロジック改善
 - DB保存
 - 複数端末同期
+## アプリ画面
+
+![メイン画面](screenshots/main.png)
