@@ -201,6 +201,14 @@ if selected_customer is not None:
             st.session_state.customers[st.session_state.selected_table]["set_time"] = (
                 customer_set_time(selected_customer) + 30
             )
+
+            st.session_state.planned_schedule = create_schedule(
+                casts,
+                st.session_state.customers,
+                st.session_state.actual_assignments,
+                rotation_time
+            )
+
             st.rerun()
 
     with ext2:
@@ -208,11 +216,27 @@ if selected_customer is not None:
             st.session_state.customers[st.session_state.selected_table]["set_time"] = (
                 customer_set_time(selected_customer) + 60
             )
+
+            st.session_state.planned_schedule = create_schedule(
+                casts,
+                st.session_state.customers,
+                st.session_state.actual_assignments,
+                rotation_time
+            )
+
             st.rerun()
 
     with ext3:
         if st.button("延長なし", use_container_width=True):
             st.session_state.customers[st.session_state.selected_table]["set_time"] = 60
+
+            st.session_state.planned_schedule = create_schedule(
+                casts,
+                st.session_state.customers,
+                st.session_state.actual_assignments,
+                rotation_time
+            )
+
             st.rerun()
 
 
